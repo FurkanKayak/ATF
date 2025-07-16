@@ -221,32 +221,37 @@
                 <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label>2. Lütfen Antalya Turizm Fuarı Start-Up Zone & Demoday Etkinliği için destek kapsamını dikkatlice okuyun <span class="required">*</span></label>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="terms_agree" name="terms_agree" required>
-                        <label for="terms_agree">Bu <a href="link.html" target="_blank">bağlantıda</a> belirtilen hüküm ve koşulları kabul ediyorum.</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="terms_declare" name="terms_declare" required>
-                        <label for="terms_declare">Verdiğim bilgilerin doğru ve gerçek olduğunu beyan ederim. Ayrıca, herhangi bir kasıtlı sahtekârlığın bu başvurunun reddedilmesine ve desteğin herhangi bir zamanda askıya alınmasına neden olabileceğini de anlıyorum.</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="terms_acknowledge" name="terms_acknowledge" required>
-                        <label for="terms_acknowledge">Destekleyen kuruluşun, öngörülemeyen durumların varlığı halinde desteği kısmen veya tamamen geri çekme hakkını saklı tutacağını kabul ediyorum.</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="terms_share" name="terms_share" required>
-                        <label for="terms_share">Verdiğim bilgilerin gerektiğinde raporlama, tanıtım veya teknik destek gibi amaçlarla kullanılabileceğini veya medya ve üçüncü taraflarla paylaşılabileceğini kabul ediyorum.</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="terms_contact" name="terms_contact" required>
-                        <label for="terms_contact">Etkinlik sonrasında geri bildirimde bulunmak veya girişimimin değerlendirilmesini ve başka bir etkinliğe katılmak üzere davet edilmek üzere benimle iletişime geçilmesini kabul ediyorum.</label>
-                    </div>
-                </div>
-            </div>
-            
+           <div class="form-group">
+    <label>2. Lütfen aşağıdaki metinleri dikkatlice okuyun ve her birini onaylayın <span class="required">*</span></label>
+    <div class="checkbox-group">
+
+       
+        <div class="checkbox-item">
+            <input type="checkbox" id="aydinlatma_okundu" name="aydinlatma_okundu" required>
+            <label for="aydinlatma_okundu">
+                <a href="aydinlatma.html" target="_blank">Antalya OSB Teknopark Aydınlatma Metni</a>'ni okudum ve anladım.
+            </label>
+        </div>
+
+        
+        <div class="checkbox-item">
+            <input type="checkbox" id="acik_riza" name="acik_riza" required>
+            <label for="acik_riza">
+                <a href="acik-riza.html" target="_blank">Antalya OSB Teknopark Açık Rıza Metni</a>'ni okudum ve açık rızamı veriyorum.
+            </label>
+        </div>
+
+        
+        <div class="checkbox-item">
+            <input type="checkbox" id="ticari_iletisim" name="ticari_iletisim" required>
+            <label for="ticari_iletisim">
+                <a href="ticari-iletisim.html" target="_blank">Ticari Elektronik İleti Onay Metni</a>'ni okudum ve ticari ileti almayı kabul ediyorum.
+            </label>
+        </div>
+
+    </div>
+</div>
+
             <div class="form-group">
                 <label for="company_name">3. Start-Up’ın tam adı <span class="required">*</span><span class="instruction">Resmî kayıtlarda kullandığınız şirket adının tam halini lütfen belirtiniz.</span></label>
                 <input type="text" id="company_name" name="company_name" class="form-control" required>
@@ -419,15 +424,31 @@
                 <label for="supports">13. Start-Up’ınızın kuluçka merkezleri/hızlandırıcılar/startup merkezleri/kamu kurumlarından aldığı ilgili destek, teşvik ve ödülleri listeleyiniz. </label>
                 <textarea id="supports" name="supports" class="form-control" required></textarea>
             </div>
-           <div class="form-group">
-    <label>14. Son 3 yillik cironuzu belirtiniz.</label>
-  
-    <label><input type="radio" name="deger" value="0-1 milyon"> 0-1 milyon</label><br>
-    <label><input type="radio" name="deger" value="1-5 milyon"> 1-5 milyon</label><br>
-    <label><input type="radio" name="deger" value="5-20 milyon"> 5-20 milyon</label><br>
-    <label><input type="radio" name="deger" value="20 milyon ve üzeri"> 20 milyon ve üzeri</label><br>
-    <label><input type="radio" name="deger" value="none"> Henüz ciromuz oluşmamıştır.</label>
+     <div class="form-group">
+  <label>14. Son 3 yıla ait cironuz oluştu mu?</label><br>
+  <label><input type="radio" name="ciro_var_mi" value="evet" onclick="toggleCiro(true)"> Evet</label><br>
+  <label><input type="radio" name="ciro_var_mi" value="hayir" onclick="toggleCiro(false)"> Hayır</label>
 </div>
+
+<div id="ciro_input" style="display: none; margin-top:10px;">
+  <label for="ciro_miktar">Ciro miktarını giriniz:</label><br>
+  <input type="number" id="ciro_miktar" name="ciro_miktar" placeholder="Örneğin: 1500000"><br><br>
+
+  <label for="para_birimi">Para birimi seçiniz:</label><br>
+  <select id="para_birimi" name="para_birimi">
+    <option value="TRY">TRY (₺)</option>
+    <option value="USD">USD ($)</option>
+    <option value="EUR">EUR (€)</option>
+    <option value="GBP">GBP (£)</option>
+  </select>
+</div>
+<br>
+<script>
+  function toggleCiro(goster) {
+    document.getElementById('ciro_input').style.display = goster ? 'block' : 'none';
+  }
+</script>
+  
             <div class="form-group">
                 <label for="investments">15. Start-Up’ınızın aldığı yatırımları listeleyiniz.</label>
                 <textarea id="investments" name="investments" class="form-control" required></textarea>
