@@ -1,39 +1,112 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ticari Elektronik İleti Onay Metni</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      padding: 30px;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 24px;
-      color: #444;
-      margin-bottom: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page_title">Ticari Elektronik İleti Onay Metni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 30px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            background: #fff;
+            padding: 25px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .lang-switch {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            user-select: none;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ticari Elektronik İleti Onay Metni</h1>
-    <p>TİCARİ ELEKTRONİK İLETİ ONAY METNİ
+    <div class="container">
+        <header>
+            <span class="lang-switch" id="langSwitch">TR</span>
+        </header>
 
+        <h1 data-translate="main_title">Ticari Elektronik İleti Onay Metni</h1>
+        
+        <p data-translate="p1">
+            ANTALYA OSB TEKNOLOJİ GELİŞTİRME BÖLGESİ İŞLETİM ANONİM ŞİRKETİ (“Antalya OSB Teknopark”) tarafından doğrudan veya dolaylı olarak, Antalya OSB Teknopark ürün ve hizmet tanıtımlarına, promosyon ve kampanya bilgilendirmelerine ve buna benzer davet, tanıtım, etkinlik ve anket uygulamalarına ilişkin olarak tarafıma e-posta aracılığıyla ticari elektronik ileti gönderilmesine, kişisel verilerimin bu amaçla işlenmesine ve gönderimin sağlanması amacıyla hizmet alınan üçüncü kişilerle paylaşılmasına açık rıza veriyorum.
+        </p>
+    </div>
 
-ARI Teknokent Proje Geliştirme Planlama A.Ş. (“ARI Teknokent”) tarafından doğrudan veya dolaylı olarak, ARI Teknokent ürün ve hizmet tanıtımlarına, promosyon ve kampanya bilgilendirmelerine ve buna benzer davet, tanıtım, etkinlik ve anket uygulamalarına ilişkin olarak tarafıma e-posta aracılığıyla ticari elektronik ileti gönderilmesine, kişisel verilerimin bu amaçla işlenmesine ve gönderimin sağlanması amacıyla hizmet alınan üçüncü kişilerle paylaşılmasına açık rıza veriyorum.</p>
-  </div>
-  <br>
+    <script>
+        const translations = {
+            'tr': {
+                'page_title': "Ticari Elektronik İleti Onay Metni",
+                'main_title': "Ticari Elektronik İleti Onay Metni",
+                'p1': "ANTALYA OSB TEKNOLOJİ GELİŞTİRME BÖLGESİ İŞLETİM ANONİM ŞİRKETİ (“Antalya OSB Teknopark”) tarafından doğrudan veya dolaylı olarak, Antalya OSB Teknopark ürün ve hizmet tanıtımlarına, promosyon ve kampanya bilgilendirmelerine ve buna benzer davet, tanıtım, etkinlik ve anket uygulamalarına ilişkin olarak tarafıma e-posta aracılığıyla ticari elektronik ileti gönderilmesine, kişisel verilerimin bu amaçla işlenmesine ve gönderimin sağlanması amacıyla hizmet alınan üçüncü kişilerle paylaşılmasına açık rıza veriyorum."
+            },
+            'en': {
+                'page_title': "Commercial Electronic Message Consent Text",
+                'main_title': "Commercial Electronic Message Consent Text",
+                'p1': "I hereby give my explicit consent for ANTALYA OSB TECHNOLOGY DEVELOPMENT ZONE OPERATING INC. (“Antalya OSB Technopark”) to send commercial electronic messages to me via email regarding, directly or indirectly, Antalya OSB Technopark product and service promotions, promotional and campaign notifications, and similar invitations, introductions, events, and survey applications; for my personal data to be processed for this purpose; and for it to be shared with third parties from whom services are received for the purpose of ensuring delivery."
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const langSwitchButton = document.getElementById('langSwitch');
+            let currentLang = 'tr';
+
+            function switchLanguage(lang) {
+                currentLang = lang;
+                const langDict = translations[lang];
+                
+                // Set HTML lang attribute
+                document.documentElement.lang = lang;
+                
+                // Translate all elements with data-translate attribute
+                document.querySelectorAll('[data-translate]').forEach(el => {
+                    const key = el.dataset.translate;
+                    if (langDict[key]) {
+                        el.innerHTML = langDict[key];
+                    }
+                });
+                
+                // Update the language switcher button text
+                langSwitchButton.textContent = lang.toUpperCase();
+            }
+
+            langSwitchButton.addEventListener('click', () => {
+                const newLang = (currentLang === 'tr') ? 'en' : 'tr';
+                switchLanguage(newLang);
+            });
+
+            // Set the initial language on page load
+            switchLanguage('tr');
+        });
+    </script>
 </body>
 </html>
